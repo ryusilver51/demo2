@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  名前：<span th:text="${user.name}">dummy</span><br>
+  メール：<span th:text="${user.email}">dummy</span><br>
+  趣味：<br>
+  <span th:each="hobby:${user.hobbyList}">
+    <span th:text="${hobby}">dummy</span><br>
+  </span>
+</body>
+</html>

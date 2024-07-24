@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="#" th:action="@{/user/create}" th:object="${userForm}" method="post">
+    <div th:errors="*{name}" style="color: red;">エラー！</div>
+    名前：<input type="text" name="name" th:field="*{name}"><br>
+    <div th:errors="*{email}" style="color: red;">エラー！</div>
+    メール：<input type="text" name="email" th:field="*{email}"><br>
+    <div th:errors="*{password}" style="color: red;">エラー！</div>
+    パスワード：<input type="password" name="password" th:field="*{password}"><br>
+    <div th:errors="*{hobbyList}" style="color: red;">エラー！</div>
+    趣味：<br>
+    <div th:each="hobby : ${hobbyMap}">
+      <input type="checkbox" name="hobbyList" th:value="${hobby.key}" th:text="${hobby.value}" th:field="*{hobbyList}">
+    </div>
+    <button>登録</button>
+  </form>
+</body>
+</html>
